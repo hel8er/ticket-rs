@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>HTMX + Axum + SQLx</title>
+        <link href="/static/tailwind.css" rel="stylesheet" />
+        <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    </head>
+    <body class="bg-gray-100 p-8">
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md p-8">
+            <h1 class="text-2xl font-bold mb-4">Todo List</h1>
+
+            <form
+                hx-post="/add"
+                hx-target="#items"
+                hx-swap="beforeend"
+                class="flex space-x-2 mb-4"
+            >
+                <input
+                    name="name"
+                    class="border rounded p-2 flex-1"
+                    placeholder="New item..."
+                    required
+                />
+                <button class="bg-blue-500 text-white rounded p-2">Add</button>
+            </form>
+
+            <ul id="items" class="list-disc pl-5">
+                {items}
+            </ul>
+        </div>
+    </body>
+</html>
