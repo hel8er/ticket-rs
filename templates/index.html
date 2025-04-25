@@ -15,6 +15,7 @@
                 hx-post="/add"
                 hx-target="#items"
                 hx-swap="beforeend"
+                hx-on::after-request="this.reset()"
                 class="flex space-x-2 mb-4"
             >
                 <input
